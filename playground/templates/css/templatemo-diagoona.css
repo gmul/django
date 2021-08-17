@@ -11,8 +11,8 @@ body {
     font-size: 17px;
     font-weight: 300;
     overflow-x: hidden;
-    color: white;
-    background-color: #2C353C;
+    color: rgb(3, 51, 105);
+    background-color: #2233ac;
 }
 
 a { 

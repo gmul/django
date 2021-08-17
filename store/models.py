@@ -5,6 +5,9 @@ from django.db.models.deletion import CASCADE, PROTECT, SET_NULL
 from django.db.models.enums import Choices
 from django.db.models.fields import CharField, DecimalField, PositiveIntegerField
 from django.db.models.fields.related import ForeignKey
+from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 # Create your models here.
 
@@ -84,3 +87,10 @@ class CartItem(models.Model):
   product = models.ForeignKey(Products, on_delete=models.CASCADE)  
   quantity = models.PositiveSmallIntegerField()
 
+class LikeItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey()
+
+    
